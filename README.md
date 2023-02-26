@@ -57,7 +57,7 @@ git remote -v
 '''
 
 heroku email = nawazme.rymec@gmail.com
-heroku api key = a337448d-bd79-44f3-b2d0-b4d580364d98
+heroku api key = copy from heroku
 heroku application name = ml-project
 
 BUILD DOCKER IMAGE
