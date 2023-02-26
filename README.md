@@ -6,6 +6,7 @@
 2. [heroku account](https://devcenter.heroku.com/articles/heroku-cli)
 3. [VS CODE IDE]
 4. [GIT CLI](https://git-scm.com/book/en/v2/Getting-Started-The-Command-Line)
+5. [GIT DOCUMENTATION](https://git-scm.com/docs)
 
 Creating conda environment
 
@@ -53,4 +54,42 @@ to check remote url
 
 '''
 git remote -v
+'''
+
+heroku email = nawazme.rymec@gmail.com
+heroku api key = a337448d-bd79-44f3-b2d0-b4d580364d98
+heroku application name = ml-project
+
+BUILD DOCKER IMAGE
+
+'''
+docker build -t <image_name>:<tagname> .
+'''
+
+Note: Image name must be lowercase, and tag name as latest
+
+to list docker image
+
+'''
+docker images
+'''
+to run the docker image
+
+'''
+docker run -p 5000:5000 -e PORT=5000 <image_ID>
+'''
+
+note: image id will be found when we list docker images
+
+to check running container in docker
+
+'''
+docker ps
+'''
+
+to stop docker container
+
+'''
+docker stop <container_id>
+
 '''
