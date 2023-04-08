@@ -12,8 +12,9 @@ DataIngestionConfig = namedtuple("DataIngestionConfig",
     5. test dataset folder
 """
 
-DataValidationConfig = namedtuple("DataValidationConfig",
-["schema_file_path"])
+DataValidationConfig = namedtuple("DataValidationConfig",["schema_file_path",
+                                                          "report_file_name",
+                                                          "report_page_file_name"]) #"schema_file_path","report_file_path","report_page_file_path"
 
 """schema_file_path = here we will define the number of columns, names of columns, no. of rows etc"""
 
@@ -22,7 +23,7 @@ DataTransformationConfig = namedtuple("DataTransformationConfig", ["add_bedroom_
                                                                     "transformed_test_dir",
                                                                     "preprocessed_object_file_path"])
 
-ModelTrainerConfig = namedtuple("ModelTrainerConfig",["trained_model_file_path", "base_accuracy"])
+ModelTrainerConfig = namedtuple("ModelTrainerConfig",["trained_model_file_path", "base_accuracy","model_config_file_path"])
 
 """ 1. trained_model_file_path = this is the location of pickle file which we create after model training
     2. Base_accuracy = we will specify some accuracy here. if the new model provides better accuracy than the base 
@@ -36,3 +37,5 @@ ModelEvaluationConfig = namedtuple("ModelEvaluationConfig",["model_evaluation_fi
 ModelPusherConfig = namedtuple("ModelPusherConfig",["export_dir_path"])
 
 """export_dir_path = where we will push the model in production"""
+
+TrainingPipelineConfig = namedtuple("TrainingPipelineConfig",["artifact_dir"])

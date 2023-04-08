@@ -97,5 +97,5 @@ docker stop <container_id>
 Install ipynbkernel
 
 '''
-pip install ipynbkernel
+pip install ipykernel
 '''
