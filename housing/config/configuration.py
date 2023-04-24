@@ -8,11 +8,11 @@ import sys, os
 from housing.logger import logging
 
 
-class configuration:
+class Configuration:
 
     def __init__(self,
         config_file_path = CONFIG_FILE_PATH,
-        current_time_stamp = CURRENT_TIME_STAMP
+        current_time_stamp:str = CURRENT_TIME_STAMP
         ) -> None:
         try:
             self.config_info = read_yaml_file(file_path= config_file_path)
@@ -25,6 +25,7 @@ class configuration:
     
     def get_data_ingestion_config(self) -> DataIngestionConfig:
         try:
+            
             artifact_dir = self.training_pipeline_config.artifact_dir
             data_ingestion_artifact_dir = os.path.join(artifact_dir,
                                                        DATA_INGESTION_ARTIFACT_DIR_KEY,
@@ -82,7 +83,7 @@ class configuration:
         
         except Exception as e:
             raise HousingException(e,sys) from e
-        pass
+        
 
     def get_data_transformation_config(self) -> DataTransformationConfig:
         try:
@@ -163,7 +164,7 @@ class configuration:
 
     def get_model_pusher_config(self) -> ModelPusherConfig:
         try:
-            time_stamp = f"{datetime.now().strftime(%Y%m%d%H%M%S)}"
+            time_stamp = f"{datetime.now().strftime('%Y%m%d%H%M%S')}"
             model_pusher_config_info = self.config_info[MODEL_PUSHER_CONFIG_KEY]
 
             export_dir_path = os.path.join(ROOT_DIR,
